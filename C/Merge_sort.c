@@ -37,36 +37,38 @@ void merge( int * array, int p, int q, int r )
     //p = index of first element
     //q = index of middle element
     //r = index of last element
-    int n = q - p + 1;
-    int m = r - q;
+    int n = q - p + 1; //number of elements on the left subarray
+    int m = r - q;//number of elements on the right subarray
     int L[n+1], R[m+1];
 
     int i;
     for ( i = 0; i < n; i++ )
-        L[i] = array[p+i];
+        L[i] = array[p+i]; //copy values
 
     int j;
     for( j = 0; j < m; j++)
-        R[j] = array[q+j+1];
+        R[j] = array[q+j+1];//copy values
 
         //to indicate the end of the subarray
         //
     L[n] = 999999;
     R[m] = 999999;
 
+
+    //sorting the array
     i = 0; j =0;
     int k;
     for(k = p ; k <= r; k++)
     {
         if( L[i] <= R[j] )
         {
-            array[k] = L[i];
-            i = i + 1;
+            array[k] = L[i];//assign smal value from Left subarray
+            i = i + 1;// remove that key from subarray
         }
         else
         {
-            array[k] = R[j];
-            j = j+1;
+            array[k] = R[j];//assign smal value from right subarray
+            j = j+1;// remove that key from subarray
         }
     }
 }
