@@ -49,6 +49,8 @@ void merge( int * array, int p, int q, int r )
     for( j = 0; j < m; j++)
         R[j] = array[q+j+1];
 
+        //to indicate the end of the subarray
+        //
     L[n] = 999999;
     R[m] = 999999;
 
