@@ -28,22 +28,26 @@ void quickSort( int * a, int first, int last )
 }
 int partition( int * a, int first, int last )
 {
-    int x = a[last];
-
-    int i =  first-1;
+    int x = a[last];// set pivot
+    int i = first-1;// in the loop we add +1 before swap.
     int j = 0;
     int temp;
 
-    for(j = first; j <= last-1; j++)
+    // find the place of a[last] where left side is all less then a[last] and the values on the right side of a[last] is all greater than a[last]
+    // While scaning from the first element ( j ) if a[j] is less then a[last], swap with a[i+1]
+    for(j = first; j <= last-1; j++)//Looping from the first element to the last element.
     {
-        if( a[j] <= x )
+        if( a[j] <= x )//if elements is smaller than the pivot
         {
-            i += 1;
-            temp = a[i];
+            i += 1; //i+1
+            temp = a[i];//swap a[i]and a[j], a[i] indicating the biggest number among the smaller numbers.
             a[i] = a[j];
             a[j] = temp;
         }
     }
+    //at the end of loop, a[p ... i] is all less than pivot x, and a[i+2 ... r] is all greater than the pivot x
+    //and place pivot x ( a[last] ) at the right place which satisfy above.(a[i+1])
+    // and return its index.
     temp = a[i+1];
     a[i+1] = a[last];
     a[last] = temp;
