@@ -40,7 +40,7 @@ int partition( int * a, int first, int last )
         if( a[j] <= x )//if elements is smaller than the pivot
         {
             i += 1; //i+1
-            temp = a[i];//swap a[i]and a[j], a[i] indicating the biggest number among the smaller numbers.
+            temp = a[i];//swap a[i]and a[j], a[i] indicates the biggest number among the smaller numbers.
             a[i] = a[j];
             a[j] = temp;
         }
